@@ -1,9 +1,12 @@
 package main.java.controller;
 
+import java.util.LinkedHashMap;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import main.java.bean.User;
 import main.java.dao.UserDao;
@@ -14,10 +17,9 @@ import org.json.JSONObject;
 @Path("/user")
 public class UserService {
 
-	@Path("{name}")
 	@GET
 	@Produces("application/json")
-	public String getUser(@PathParam("name") String userName)
+	public String getUser(@QueryParam("name") String userName)
 			throws JSONException {
 
 		UserDao dao = UserDao.getInstance();
